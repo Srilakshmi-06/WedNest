@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  
+  --color-brand-900: #0f172a; /* Slate 900 */
+  --color-brand-800: #1e293b;
+  --color-brand-700: #334155;
+  --color-brand-600: #475569;
+  --color-brand-500: #64748b;
+  --color-brand-400: #94a3b8;
+  --color-brand-300: #cbd5e1;
+  --color-brand-200: #e2e8f0;
+  --color-brand-100: #f1f5f9;
+  --color-brand-50:  #f8fafc;
+
+  --color-accent-900: #7a2e39;
+  --color-accent-800: #9f3647;
+  --color-accent-700: #c43d56;
+  --color-accent-600: #df4d6a;
+  --color-accent-500: #ed617f; /* A soft romantic rose */
+  --color-accent-400: #f48a9f;
+  --color-accent-300: #f9b1c0;
+  --color-accent-200: #fcd5dd;
+  --color-accent-100: #feebef;
+  --color-accent-50:  #fff5f7;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-brand-800 bg-brand-50;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
