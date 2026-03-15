@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { UserPlus, ArrowRight } from 'lucide-react';
+import API_URL from '../config';
 
 export default function Signup() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '', phone: '' });
@@ -14,7 +15,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
+      const res = await fetch(`${API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import API_URL from '../config';
 
 const AuthContext = createContext();
 
@@ -10,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       // Decode or verify token with backend. For simplicity, we just save the token and set some user state
       // Real app: fetch /api/auth/profile
-      fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
+      fetch(`${API_URL}/api/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => res.json())

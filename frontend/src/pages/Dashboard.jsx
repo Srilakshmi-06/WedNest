@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import API_URL from '../config';
 import { Navigate } from '@tanstack/react-router';
 import { User, Calendar, Phone, Edit2, Mail, Save, X } from 'lucide-react';
 import { format } from 'date-fns';
@@ -18,7 +19,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (token) {
-      fetch(`${import.meta.env.VITE_API_URL}/api/inquiries`, {
+      fetch(`${API_URL}/api/inquiries`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => res.json())
@@ -30,7 +31,7 @@ export default function Dashboard() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
+      const res = await fetch(`${API_URL}/api/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

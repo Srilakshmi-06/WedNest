@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from '@tanstack/react-router';
+import API_URL from '../config';
 import { Search, MapPin, SlidersHorizontal, ArrowUpRight } from 'lucide-react';
 
 export default function Vendors() {
@@ -10,7 +11,7 @@ export default function Vendors() {
 
   const fetchVendors = () => {
     setLoading(true);
-    let url = new URL(`${import.meta.env.VITE_API_URL}/api/vendors`);
+    let url = new URL(`${API_URL}/api/vendors`);
     if (search) url.searchParams.append('search', search);
     if (category) url.searchParams.append('category', category);
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from '@tanstack/react-router';
+import API_URL from '../config';
 import { useAuth } from '../context/AuthContext';
 import { MapPin, CheckCircle2, Send, Star, ArrowLeft } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
@@ -19,7 +20,7 @@ export default function VendorDetails() {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`)
+    fetch(`${API_URL}/api/vendors/${vendorId}`)
       .then(res => res.json())
       .then(data => setVendor(data))
       .catch(console.error);
@@ -33,7 +34,7 @@ export default function VendorDetails() {
       const headers = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/inquiries`, {
+      const res = await fetch(`${API_URL}/api/inquiries`, {
         method: 'POST',
         headers,
         body: JSON.stringify({ ...formData, vendor_id: vendorId })
