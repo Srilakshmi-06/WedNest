@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/wednest",
+  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 });
 
 // A helper function to initialize DB tables
